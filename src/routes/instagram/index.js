@@ -3,6 +3,7 @@ const router = require("express").Router();
 
 router.get("/instagram", async (req, res) => {
   const result = await Instagram.find();
+
   res.send(result);
 });
 
