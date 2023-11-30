@@ -5,6 +5,7 @@ const router = require("express").Router();
 
 router.get("/user", async (req, res) => {
   const result = await User.find();
+
   res.send(result);
 });
 
@@ -18,6 +19,7 @@ router.post("/user", async (req, res) => {
   }
 
   const result = await User.create(user);
+
   res.send(result);
 });
 
@@ -26,6 +28,7 @@ router.patch("/user/:id", verifyToken, async (req, res) => {
   const filter = { _id: new ObjectId(id) };
   const updateDoc = req.body;
   const result = await User.updateOne(filter, updateDoc);
+
   res.send(result);
 });
 
@@ -33,6 +36,7 @@ router.delete("/user/:id", verifyToken, async (req, res) => {
   const id = req.params.id;
   const queryId = { _id: new ObjectId(id) };
   const result = await User.deleteOne(queryId);
+
   res.send(result);
 });
 
