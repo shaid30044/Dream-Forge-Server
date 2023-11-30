@@ -5,6 +5,7 @@ const router = require("express").Router();
 
 router.get("/payments", async (req, res) => {
   const result = await Payment.find();
+
   res.send(result);
 });
 
@@ -25,6 +26,7 @@ router.post("/create-payment-intent", verifyToken, async (req, res) => {
 router.post("/payments", verifyToken, async (req, res) => {
   const payment = req.body;
   const paymentResult = await Payment.create(payment);
+
   res.send(paymentResult);
 });
 
