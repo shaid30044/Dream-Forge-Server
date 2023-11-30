@@ -12,5 +12,4 @@ const createCookieToken = async (req, res) => {
     })
     .send({ success: true });
 };
-
 module.exports = createCookieToken;
